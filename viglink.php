@@ -21,7 +21,7 @@
 
 /*
 Plugin Name: VigLink
-Version: 1.0
+Version: 1.0.1
 Description: The easiest way to monetize the links on your site.  Link directly to other sites, just like you do today.  VigLink automatically affiliates those links -- even links on posts you've already written -- with no extra editing!  Get stats on which links are making you the most money, which are most clicked, and more.
 
 Author: VigLink
@@ -41,14 +41,13 @@ function viglnk_script() {
 ?>
   <!-- VigLink: http://viglink.com -->
   <script type="text/javascript">
-    var vglnk_api_key = "<?php print addslashes( $key ); ?>";
-    var vglnk_domain = (("https:" == document.location.protocol) ? "https://" : "http://") + "api.viglink.com";
-    document.write(unescape("%3Cscript src='" + vglnk_domain + "/api/vglnk.js?key=" + vglnk_api_key + "' type='text/javascript'%3E%3C/script%3E"));
-  </script>
-  <script type="text/javascript">
-    try {
-      vglnk(vglnk_domain, vglnk_api_key);
-    } catch(err) {}
+    var vglnk = { key: '<?php print addslashes( $key ); ?>' };
+
+    (function(d, t) {
+      var s = d.createElement(t); s.type = 'text/javascript'; s.async = true;
+      s.src = '//api.viglink.com/api/vglnk.js?key=' + vglnk.key;
+      var r = d.getElementsByTagName(t)[0]; r.parentNode.insertBefore(s, r);
+    }(document, 'script'));
   </script>
   <!-- end VigLink -->
 <?php
@@ -85,7 +84,7 @@ function viglink_options() { ?>
   ?>
     <p class="instructions">
       Copy your API key from
-      <a href="http://www.viglink.com/users/edit">viglink.com</a> and paste it
+      <a href="http://www.viglink.com/account">viglink.com</a> and paste it
       below, or <a href="#" id="viglink-fetch">click here</a> to retrieve it
       automatically.
     </p>

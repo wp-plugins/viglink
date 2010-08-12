@@ -32,7 +32,7 @@
       if( error_count > 1 ) {
         error.append( $("<p/>").html(
           'If it still won\'t work, copy the API key from your\
-          <a href="http://www.viglink.com/users/edit">VigLink account page</a>\
+          <a href="http://www.viglink.com/account">VigLink account page</a>\
           and paste it below.'
         ) );
       }
@@ -46,10 +46,12 @@
         disable();
 
         var timeout = setTimeout( function() {
+          timeout = null;
           error();
         }, load_timeout );
 
         $.get( 'http://www.viglink.com/service/json/getKey', {}, function( data ) {
+          if( ! timeout ) { return; }
           clearTimeout( timeout );
           setTimeout( function() {
             if( data.key ) {
