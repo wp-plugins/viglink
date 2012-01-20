@@ -21,7 +21,7 @@
 
 /*
 Plugin Name: VigLink
-Version: 1.0.1
+Version: 1.0.2
 Description: The easiest way to monetize the links on your site.  Link directly to other sites, just like you do today.  VigLink automatically affiliates those links -- even links on posts you've already written -- with no extra editing!  Get stats on which links are making you the most money, which are most clicked, and more.
 
 Author: VigLink
@@ -110,7 +110,7 @@ function viglink_options() { ?>
   <p style="width: 50%; font-size: 0.8em;">
     Have questions or comments about VigLink or the plugin? Suggestions for
     something you'd like us to add? Please
-    <a href="http://getsatisfaction.com/viglink">let us know</a>!
+    <a href="http://www.viglink.com/support">let us know</a>!
   </p>
 <?php
 }
