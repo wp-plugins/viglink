@@ -12,7 +12,7 @@ VigLink is a tool to make participation in affiliate programs easier. We handle 
 
 By installing VigLink on your site, you instantly participate in the affiliate programs of thousands of cooperating merchants. Links are neither added nor removed from the page, VigLink affiliates existing links. We also provide outbound link reports (data Google Analytics does not offer) giving you insight into where your readers are going and what they do when they get there.
 
-VigLink takes a cut only of new revenue you earn so there is no risk. Existing affiliate links are not touched and you benefit from collective bargaining, ensuring maximum compensation for your traffic.
+VigLink takes a cut only of new revenue you earn so there is no risk. Existing affiliate links are not touched and you benefit from collective bargaining, ensuring maximum compensation for your traffic.  For all existing links we affiliate, VigLink takes 25% of the commissions you earn.
 
 When clicks leave your site, you are creating value.  VigLink is the easiest and most complete way to measure and capture that value.
 
