@@ -50,7 +50,7 @@
           error();
         }, load_timeout );
 
-        $.get( 'http://www.viglink.com/service/json/getKey', {}, function( data ) {
+        $.get( 'http://www.viglink.com/users/getKey', {}, function( data ) {
           if( ! timeout ) { return; }
           clearTimeout( timeout );
           setTimeout( function() {
