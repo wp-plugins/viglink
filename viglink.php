@@ -21,7 +21,7 @@
 
 /*
 Plugin Name: VigLink
-Version: 1.0.2
+Version: 1.0.3
 Description: The easiest way to monetize the links on your site.  Link directly to other sites, just like you do today.  VigLink automatically affiliates those links -- even links on posts you've already written -- with no extra editing!  Get stats on which links are making you the most money, which are most clicked, and more.
 
 Author: VigLink
@@ -99,12 +99,31 @@ function viglink_options() { ?>
             <span class="description">Required</span>
           </td>
         </tr>
+
+    <?php
+    if(viglink_validate_option( "key" )) {
+    ?>
+      <tr>
+        <th style="width: auto;">
+          Enable RSS link rewriting
+        </th>
+        <td>
+            <input id="viglink-enable-rss-rewrites" type="checkbox" name="enable-rss-rewrites" 
+              <?php echo get_option( "enable-rss-rewrites" ) ? ' checked="checked" ' : '' ?> />
+        </td>
+      </tr>
+
+    <?php
+    }
+    ?>
+
       </table>
       <p class="submit">
         <input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
         <span class="reminder" style="display: none;">&larr; Don't forget to save!</span>
       </p>
     </form>
+
   </div>
 <?php } ?>
   <p style="width: 50%; font-size: 0.8em;">
@@ -138,6 +157,7 @@ function viglink_admin_init() {
 
   // register settings for the options page
   register_setting( "viglink", "key", "viglink_sanitize_option" );
+  register_setting( "viglink", "enable-rss-rewrites");
 }
 
 /**
@@ -153,7 +173,7 @@ function viglink_admin_includes() {
  */
 function viglink_options_menu() {
   // add the options page to the settings menu
-  $page = add_options_page( "VigLink Options", "VigLink", 8, __FILE__, "viglink_options" );
+  $page = add_options_page( "VigLink Options", "VigLink", "edit_plugins", __FILE__, "viglink_options" );
 
   // include plugin-specific includes on the options page
   add_action( "admin_print_scripts-" . $page, "viglink_admin_includes" );
@@ -171,12 +191,95 @@ function viglink_sanitize_option( $value ) {
   return htmlspecialchars( $value );
 }
 
+function viglink_rss_rewrites_enabled() {
+  if (viglink_validate_option('key')) {
+    return (bool) get_option( 'enable-rss-rewrites' );
+  } else {
+    return false;
+  }
+}
+
 // options
 
 add_option( "is-not-first-load" );
 add_option( "key" );
+add_option( "enable-rss-rewrites" );
+
+function viglink_get_click_url($url) {
+  $scheme = "http" . ( strtolower( $_SERVER["HTTPS"] ) == "on" ? "s" : "" ) . "://";
+
+  $loc = ( $_SERVER["HTTP_HOST"] && $_SERVER["REQUEST_URI"] ) ? 
+    ( $scheme . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] ) : 
+    null;
+
+  $params = array(
+    "format" => "go",
+    "key" => get_option('key'),
+    "loc" => $loc,
+    "out" => $url,
+    "ref" => $_SERVER["HTTP_REFERER"] ? $_SERVER["HTTP_REFERER"] : null,
+    "title" => null,
+    "txt" => null
+  );  
+   
+  return "http://apicdn.viglink.com/api/click?" . http_build_query( $params );
+}
+
+function viglink_is_external_link($url) {
+  $parts = parse_url( $url );
+  $link_host = strtolower( $parts['host'] );
+  $server_host = strtolower( $_SERVER['HTTP_HOST'] );
+  return $link_host && ( !$server_host || $server_host !== $link_host );
+}
+
+function viglink_rewrite_link($matches) {
+  if (preg_match('/norewrite/i', $matches[0])) {
+    return $matches[0];
+  }
+
+  $url = html_entity_decode($matches[2]);
+  $url = viglink_is_external_link($url) ? viglink_get_click_url($url) : $url;
+
+  return $matches[1] . $url;
+}
+
+function viglink_rewrite_links($html) {
+  return preg_replace_callback( '/(<a[^>]*href=")([^"]+)/i', "viglink_rewrite_link", $html );
+}
 
 // hooks
+
+function viglink_add_debug_info() {
+
+?>
+<!--
+  VL Debug info:
+
+  <?php print viglink_rss_rewrites_enabled() ?>
+
+-->
+
+<?php
+
+}
+
+add_action( 'template_redirect', 'viglink_rss_rewrite_hooks' );
+function viglink_rss_rewrite_hooks() {
+  if (viglink_rss_rewrites_enabled() ) {
+    global $wp_version;
+
+    if (version_compare($wp_version, '2.9', '<')) {
+      if(is_feed()) {
+        add_filter('the_content', 'vigink_rewrite_links');
+      }
+    } else {
+      add_filter('the_content_rss', 'viglink_rewrite_links');
+      add_filter('the_content_feed', 'viglink_rewrite_links');
+    }
+  }
+} 
+
+//add_action('wp_footer', 'viglink_add_debug_info');
 
 // register settings for the admin options page
 add_action( "admin_init", "viglink_admin_init" );

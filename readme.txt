@@ -2,19 +2,23 @@
 Contributors: VigLink
 Tags: affiliate, marketing, links, monetization, javascript, easy
 Requires at least: 2.7
-Tested up to: 3.3.1
-Stable tag: 1.0.2
+Tested up to: 3.6.1
+Stable tag: 1.0.3
 
-The easiest way to monetize your content.  VigLink automatically affiliates your links (even on pages you've already written) and provides stats.
+The easiest way to monetize your content, VigLink pays you when visitors buy the brands and products you write about.
 
 == Description ==
-VigLink is a tool to make participation in affiliate programs easier. We handle the work of link affiliation and maintenance so that you can focus on creating great content.
+We believe making money from blogging shouldn't take more time than, well, blogging.  VigLink automatically pays you when people buy the brands and products you write about.
 
-By installing VigLink on your site, you instantly participate in the affiliate programs of thousands of cooperating merchants. Links are neither added nor removed from the page, VigLink affiliates existing links. We also provide outbound link reports (data Google Analytics does not offer) giving you insight into where your readers are going and what they do when they get there.
+You’ve put time, creativity, and money into building your own brand and cultivating loyal followers who share your viewpoints, trust your recommendations, and find inspiration in your writing. As your audience visits your site in a shopping frame of mind, you deserve to earn revenue from the purchases you drive. VigLink makes this possible.
 
-VigLink takes a cut only of new revenue you earn so there is no risk. Existing affiliate links are not touched and you benefit from collective bargaining, ensuring maximum compensation for your traffic.  For links we affiliate, VigLink takes 25% of the commissions you earn.
+By [signing up for VigLink](http://www.viglink.com/sign-up) and installing this plugin, you can automatically monetize links to over 30,000 cooperating merchants. [VigLink Convert](http://www.viglink.com/products/convert), our product that converts ordinary links into monetized links, works on existing links across all of your pages. It even works for links distributed in your RSS feeds. 
 
-When clicks leave your site, you are creating value.  VigLink is the easiest and most complete way to measure and capture that value.
+After you’ve signed up, sign in to [viglink.com](http://www.viglink.com/) to check your dashboard where we provide reports for all the clicks leaving your site (data Google Analytics does not offer), giving you insight into where your readers are going, what links are most lucrative, what pages or posts earn the most, and what products people are buying.
+
+VigLink keeps a percentage of the revenue we earn for you, so there is no risk. For VigLink Convert, we keep 25% and pay you 75%. Existing affiliate links are not touched and you benefit from the maximum compensation possible for your traffic. After all, with tens of thousands of sites like yours in our network, we can negotiate directly with the retailers to secure the very best payouts.
+
+When clicks leave your site, you are creating value. VigLink is the easiest and most complete way to measure and capture that value.
 
 == Installation ==
 
@@ -27,43 +31,15 @@ When clicks leave your site, you are creating value.  VigLink is the easiest and
 
 = What is VigLink? =
 
-VigLink enables you to get paid for doing what you normally do on your blog or site. Whenever you link to a product, website, or promotion, VigLink turns that link into an affiliate link so that you receive a commission for any purchases made.
+VigLink technology instantly and automatically captures the value of content that drives commerce. We monetize ordinary links to over 30,000 retailers, whether they're created by you or us. Our technology works across sites, apps, and social networks so you can focus on your business, earn more, and avoid the hassle of managing countless affiliate programs.
 
 = How do I get started? =
 
-As part of the installation you do need to create and account at [viglink.com](http://www.viglink.com/users/signup). Then follow the instructions on the installation tab.
-
-= What's the difference between a link and an affiliate link? =
-
-On your webpage you probably already link to a number of recommended products or companies, but only affiliate links allow you to get paid if one of your visitors makes a purchase at the linked site. Specifically, an affiliate link tells a site that its customer has come from your site, so you can receive a commission on the sale.
-
-= Can't I just create an affiliate link myself? =
-
-Of course--but it's time-consuming to enroll in a program, ensure that you have the correct affiliate links, and then manage that program. By contrast, one quick install of the VigLink library on your page enrolls you in all relevant affiliate programs quickly and easily. Plus, we'll administer everything so that you don't have to!
-
-= How does VigLink make money? =
-
-You earn a commission for every sale made on a linked site. VigLink takes a small fee from that commission and then passes on the rest to you.
-
-= So what's happening underneath? =
-
-After you embed the VigLink library on your page, it monitors when visitors click on a link pointing to a different site. The library checks to see if the URL of that link can be affiliated; if so, the link is automatically affiliated.
-
-= Will my users notice? =
-
-Likely not. VigLink does not change the user experience one bit. No links are inserted or removed on the page, there are no double-underlines or pop-ups, and mousing over a link looks "clean."
-
-= How does payment work? =
-
-VigLink will pay by check in the United States and PayPal anywhere it is available. We are expanding our payment options over time. VigLink will ask for payment information and pay publishers as soon as their balance reaches $25.
-
-= What happens if VigLink goes down? =
-
-VigLink has been designed for high reliability. In case it is unreachable for some reason, your page will be not be affected. All that will happen is that, temporarily, your links will not be affiliated.
+Just sign up for an account at [viglink.com](http://www.viglink.com/) and then follow the simple instructions on the installation tab. It only takes a few minutes.
 
 = I have more questions, where do I go? =
 
-Find a detailed FAQ and more info at [viglink.com](http://www.viglink.com/)
+Our [how-it-works](http://www.viglink.com/how-it-works) page is a helpful overview, plus we’ve got a detailed FAQ at [viglink.com/faq](http://www.viglink.com/faq). We also have pages to check out more information about [VigLink Convert](http://www.viglink.com/products/convert), [VigLink Insert](http://www.viglink.com/products/insert), and [VigLink Anywhere](http://www.viglink.com/products/anywhere).
 
 == Screenshots ==
 
