@@ -2,8 +2,8 @@
 Contributors: VigLink
 Tags: affiliate, marketing, links, monetization, javascript, easy
 Requires at least: 2.7
-Tested up to: 3.6.1
-Stable tag: 1.0.3
+Tested up to: 4.2.2
+Stable tag: 1.0.4
 
 The easiest way to monetize your content, VigLink pays you when visitors buy the brands and products you write about.
 
